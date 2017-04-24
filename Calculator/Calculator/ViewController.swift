@@ -35,7 +35,9 @@ class ViewController: UIViewController {
         }
         
         switch operation {
-        case "×": performOperation(operation: multiply)
+        case "×": performOperation(operation: {(op1:Double,op2:Double)->Double in
+            return op1*op2
+        })
         default: break
         }
         
@@ -47,11 +49,6 @@ class ViewController: UIViewController {
             enter()
         }
     }
-    
-    func multiply(op1:Double,op2:Double)->Double{
-        return op1*op2
-    }
-    
     
     
     
