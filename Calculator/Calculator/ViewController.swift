@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var display: UILabel!
     var userIsInTheMiddleOfTypingANumber = false
-
+    
     @IBAction func appendDigit(_ sender: UIButton){
         let digit = sender.currentTitle!
         if userIsInTheMiddleOfTypingANumber{
@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         
     }
     
-
+    
     
     
     @IBAction func operate(_ sender: UIButton) {
@@ -35,16 +35,22 @@ class ViewController: UIViewController {
         }
         
         switch operation {
-        case "×":
-            if operandStack.count>=2{
-                displayValue=operandStack.removeLast()*operandStack.removeLast()
-                enter()
-            }
-
+        case "×": performOperation(operation: multiply)
         default: break
         }
         
-     }
+    }
+    
+    func performOperation(operation: (Double,Double)->Double){
+        if operandStack.count>=2{
+            displayValue=operation(operandStack.removeLast(),operandStack.removeLast())
+            enter()
+        }
+    }
+    
+    func multiply(op1:Double,op2:Double)->Double{
+        return op1*op2
+    }
     
     
     
