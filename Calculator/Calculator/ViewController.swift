@@ -35,9 +35,7 @@ class ViewController: UIViewController {
         }
         
         switch operation {
-        case "×": performOperation(operation: {(op1:Double,op2:Double)->Double in
-            return op1*op2
-        })
+        case "×": performOperation(operation: { (op1,op2) in op1 * op2 })
         default: break
         }
         
