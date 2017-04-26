@@ -11,8 +11,12 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var display: UILabel!
+    
     var userIsInTheMiddleOfTypingANumber = false
     
+    var brain = CalculatorBrain()
+    
+    //    1.
     @IBAction func appendDigit(_ sender: UIButton){
         let digit = sender.currentTitle!
         if userIsInTheMiddleOfTypingANumber{
@@ -21,69 +25,41 @@ class ViewController: UIViewController {
             display.text = digit
             userIsInTheMiddleOfTypingANumber = true;
         }
-        
-        
     }
     
-    
-    
-    
+//    3.加减乘除运算
     @IBAction func operate(_ sender: UIButton) {
-        let operation=sender.currentTitle!
         if userIsInTheMiddleOfTypingANumber{
             enter()
         }
-        
-        switch operation {
-        case "×": performOperation { $0 * $1 }
-        case "÷": performOperation { $1 / $0 }
-        case "+": performOperation { $0 + $1 }
-        case "−": performOperation { $1 - $0 }
-        case "√": performOperation { sqrt($0) }
-        default: break
-        }
-        
-    }
-    
-    func performOperation(operation: (Double,Double)->Double){
-        if operandStack.count>=2{
-            displayValue=operation(operandStack.removeLast(),operandStack.removeLast())
-            enter()
+        if let operation=sender.currentTitle{
+            if let result = brain.performOperation(operation){
+                displayValue = result
+            }else{
+                displayValue = 0
+            }
         }
     }
     
-    @nonobjc
-    func performOperation(operation: (Double) -> Double){
-        if operandStack.count>=1{
-            displayValue=operation(operandStack.removeLast())
-            enter()
-        }
-    }
-    
-    
-    
-    var operandStack = Array<Double>()
+    //    2.
     @IBAction func enter() {
         userIsInTheMiddleOfTypingANumber = false
-        operandStack.append(displayValue)
-        print("OA = \(operandStack)")
+        if let result = brain.pushOperand(displayValue){
+            displayValue = result
+        }else{
+            displayValue = 0 //
+        }
     }
     
     var displayValue: Double{
         get{
             return NumberFormatter().number(from: display.text!)!.doubleValue
         }
-        
         set{
             display.text = "\(newValue)"
-            userIsInTheMiddleOfTypingANumber = false
+            //userIsInTheMiddleOfTypingANumber = false
         }
-        
     }
-    
-    
-    
-    
     
 }
 
