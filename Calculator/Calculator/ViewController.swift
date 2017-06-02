@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Calculator
 //
-//  Created by LangDylan on 2017/4/24.
+//  Created by LangDylan on 2017/5/4.
 //  Copyright © 2017年 Dylan Lang. All rights reserved.
 //
 
@@ -12,54 +12,44 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var display: UILabel!
     
-    var userIsInTheMiddleOfTypingANumber = false
+    var userIsInTheMiddleOfTyping = false
     
-    var brain = CalculatorBrain()
     
-    //    1.
-    @IBAction func appendDigit(_ sender: UIButton){
+    @IBAction func touchDigit(_ sender: UIButton)
+    {
         let digit = sender.currentTitle!
-        if userIsInTheMiddleOfTypingANumber{
-            display.text = display.text! + digit
+        if userIsInTheMiddleOfTyping{
+            let textCurrentlyInDisplay = display.text!
+            display.text = textCurrentlyInDisplay + digit
         }else{
             display.text = digit
-            userIsInTheMiddleOfTypingANumber = true;
-        }
-    }
-    
-//    3.加减乘除运算
-    @IBAction func operate(_ sender: UIButton) {
-        if userIsInTheMiddleOfTypingANumber{
-            enter()
-        }
-        if let operation=sender.currentTitle{
-            if let result = brain.performOperation(operation){
-                displayValue = result
-            }else{
-                displayValue = 0
-            }
-        }
-    }
-    
-    //    2.
-    @IBAction func enter() {
-        userIsInTheMiddleOfTypingANumber = false
-        if let result = brain.pushOperand(displayValue){
-            displayValue = result
-        }else{
-            displayValue = 0 //
+            userIsInTheMiddleOfTyping = true
         }
     }
     
     var displayValue: Double{
         get{
-            return NumberFormatter().number(from: display.text!)!.doubleValue
+            return Double(display.text!)!
         }
         set{
-            display.text = "\(newValue)"
-            //userIsInTheMiddleOfTypingANumber = false
+            display.text = String(newValue)
         }
     }
     
+    private var brain = CalculatorBrain()
+    
+    @IBAction func performOperation(_ sender: UIButton) {
+        if userIsInTheMiddleOfTyping{
+            brain.setOperand(displayValue)
+            userIsInTheMiddleOfTyping = false
+        }
+        if let mathematicalSymbol = sender.currentTitle{
+            brain.performOperation(mathematicalSymbol)
+        }
+        if  let result = brain.result {
+            displayValue = result
+        }
+        
+    }
 }
 

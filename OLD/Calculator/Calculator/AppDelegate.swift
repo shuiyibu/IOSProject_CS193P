@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Calculator
 //
-//  Created by LangDylan on 2017/5/4.
+//  Created by LangDylan on 2017/4/24.
 //  Copyright © 2017年 Dylan Lang. All rights reserved.
 //
 

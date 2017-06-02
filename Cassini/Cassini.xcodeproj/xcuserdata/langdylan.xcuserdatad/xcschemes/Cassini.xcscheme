@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F321E7301EBB29C200E5DA01"
-               BuildableName = "Calculator.app"
-               BlueprintName = "Calculator"
-               ReferencedContainer = "container:Calculator.xcodeproj">
+               BlueprintIdentifier = "F3EC2DB51EE02BFC00615B34"
+               BuildableName = "Cassini.app"
+               BlueprintName = "Cassini"
+               ReferencedContainer = "container:Cassini.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F321E7301EBB29C200E5DA01"
-            BuildableName = "Calculator.app"
-            BlueprintName = "Calculator"
-            ReferencedContainer = "container:Calculator.xcodeproj">
+            BlueprintIdentifier = "F3EC2DB51EE02BFC00615B34"
+            BuildableName = "Cassini.app"
+            BlueprintName = "Cassini"
+            ReferencedContainer = "container:Cassini.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F321E7301EBB29C200E5DA01"
-            BuildableName = "Calculator.app"
-            BlueprintName = "Calculator"
-            ReferencedContainer = "container:Calculator.xcodeproj">
+            BlueprintIdentifier = "F3EC2DB51EE02BFC00615B34"
+            BuildableName = "Cassini.app"
+            BlueprintName = "Cassini"
+            ReferencedContainer = "container:Cassini.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F321E7301EBB29C200E5DA01"
-            BuildableName = "Calculator.app"
-            BlueprintName = "Calculator"
-            ReferencedContainer = "container:Calculator.xcodeproj">
+            BlueprintIdentifier = "F3EC2DB51EE02BFC00615B34"
+            BuildableName = "Cassini.app"
+            BlueprintName = "Cassini"
+            ReferencedContainer = "container:Cassini.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

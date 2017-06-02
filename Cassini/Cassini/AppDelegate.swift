@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Calculator
+//  Cassini
 //
-//  Created by LangDylan on 2017/5/4.
+//  Created by LangDylan on 2017/6/1.
 //  Copyright © 2017年 Dylan Lang. All rights reserved.
 //
 
